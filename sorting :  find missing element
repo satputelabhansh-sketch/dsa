@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> findMissingElements(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        vector<int> v;
+        int miss = nums[0];
+        int maxval = *max_element(nums.begin(), nums.end());
+        unordered_set<int> s;
+
+        for (int x : nums) {
+            s.insert(x);
+        }
+
+        for (int i = 1; i < maxval; i++) {
+
+            if (s.find(miss) == s.end()) {
+
+                v.push_back(miss);
+            }
+            if (miss == maxval) {
+                break;
+            }
+
+            miss++;
+        }
+
+        return v;
+    }
+};
