@@ -1,0 +1,58 @@
+class Solution {
+public:
+    int minOperations(string s) {
+        
+        int n = s.size();
+        int countStartWith0 = 0;  // pattern: 010101...
+        int countStartWith1 = 0;  // pattern: 101010...
+        
+        // Dry Run Example:
+        // Suppose s = "0100"
+        // Index:   0 1 2 3
+        // s:       0 1 0 0
+        
+        for(int i = 0; i < n; i++) {
+            
+            // If pattern starts with '0'
+            // Even index → should be '0'
+            // Odd index  → should be '1'
+            
+            if(i % 2 == 0) {
+                // even index
+                if(s[i] != '0') {
+                    countStartWith0++;   // mismatch
+                }
+            }
+            else {
+                // odd index
+                if(s[i] != '1') {
+                    countStartWith0++;   // mismatch
+                }
+            }
+            
+            
+            // If pattern starts with '1'
+            // Even index → should be '1'
+            // Odd index  → should be '0'
+            
+            if(i % 2 == 0) {
+                if(s[i] != '1') {
+                    countStartWith1++;   // mismatch
+                }
+            }
+            else {
+                if(s[i] != '0') {
+                    countStartWith1++;   // mismatch
+                }
+            }
+        }
+        
+        // Return minimum of both patterns
+        if(countStartWith0 < countStartWith1) {
+            return countStartWith0;
+        }
+        else {
+            return countStartWith1;
+        }
+    }
+};
