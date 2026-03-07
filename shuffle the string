@@ -1,0 +1,17 @@
+class Solution {
+public:
+    string restoreString(string s, vector<int>& indices) {
+        map<char, int> m;                                // stl ordered map 
+
+        string ans = "";
+
+        for (int j = 0; j < indices.size(); j++) {       // dont need extra loop
+
+            m[indices[j]] = s[j];
+        }
+        for (auto x : m) {
+            ans += x.second;                             //  print string value
+        }
+        return ans;
+    }
+};
