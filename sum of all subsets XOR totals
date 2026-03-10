@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int subsetXORSum(vector<int>& nums) {
+        int ans = 0;
+
+        int n = nums.size();
+
+        for (int i = 0; i < nums.size(); i++) {
+
+            ans = ans | nums[i];        // firstly get the OR of all element 
+        }
+
+        return ans * (1 << (n - 1));    // convert OR into XOR 
+    }
+};
