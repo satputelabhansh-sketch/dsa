@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int countGoodTriplets(vector<int>& arr, int a, int b, int c) {
+        vector<int> ans;
+        int x, y, z;
+        int count = 0;
+        for (int i = 0; i < arr.size()-2 ; i++) {
+          
+            for (int j = i+1; j < arr.size() - 1; j++) {
+                for (int k = i+2; k < arr.size(); k++) {
+                    int x = arr[i], y = arr[j], z = arr[k];
+                    if(i < j && j< k && i>= 0 && k <arr.size()){
+                    if (abs(x - y) <= a  && abs(y - z) <= b && abs(x - z) <= c) {        /// convert value in positive 
+                                ans.push_back(x);
+                                ans.push_back(y);                                        // store the value in ans vector
+                                ans.push_back(z);
+
+                                count++;
+                                continue ;
+                            }
+                            else continue ; }
+                            x = y = z = 0;
+                    
+                }
+            }
+        }
+        return count;
+    }
+};
