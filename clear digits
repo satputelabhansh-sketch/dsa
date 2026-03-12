@@ -1,0 +1,18 @@
+class Solution {
+public:
+    string clearDigits(string s) {
+        
+  vector<char>ans ;                  // create string vector array
+
+        for(char x : s){
+
+            if(isdigit(x)){        
+            ans.pop_back();           // check element is digit or not 
+            }
+            else
+            ans.push_back(x);
+        }
+     return string(ans.begin(), ans.end());           convert into string 
+        
+    }
+};
