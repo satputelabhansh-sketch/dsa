@@ -1,0 +1,9 @@
+class Solution {
+public:
+    int mySqrt(int x) {
+        
+        int z = pow(x, 0.5);        ////store the squareroot of (X) 
+
+        return z;
+    }
+};
